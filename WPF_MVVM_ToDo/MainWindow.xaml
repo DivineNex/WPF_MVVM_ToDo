@@ -5,12 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_ToDo" 
         xmlns:controls="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
+        xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
         mc:Ignorable="d"
         Title="ToDo" Height="720" Width="1280"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vms:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="Esc" Command="{Binding CloseApplicationCommand}"/>
+    </Window.InputBindings>
     <Grid>
         <controls:HomeScreenView/>
     </Grid>
