@@ -15,5 +15,16 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
         </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CaretBrush" Value="White"/>
+        </Style>
     </Application.Resources>
 </Application>
