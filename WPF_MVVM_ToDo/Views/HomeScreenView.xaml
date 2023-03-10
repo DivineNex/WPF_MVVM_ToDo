@@ -5,15 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="850">
+             d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <Border CornerRadius="30">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#F5F5F5" Offset="0"/>
-                    <GradientStop Color="#C2C2C4" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
+        <Border CornerRadius="30" Background="#101113">
+            
         </Border>
     </Grid>
 </UserControl>

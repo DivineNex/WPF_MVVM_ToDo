@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:WPF_MVVM_ToDo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Inter">
+            ./Resources/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf#Inter
+        </FontFamily>
+
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        </Style>
     </Application.Resources>
 </Application>
