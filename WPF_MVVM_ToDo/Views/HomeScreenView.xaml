@@ -33,20 +33,23 @@
                                VerticalAlignment="Center"
                                Margin="20 0 0 0"/>
                 </StackPanel>
-                <ItemsControl ItemsSource="{Binding TaskCardViewModels}"
-                              Grid.Row="1"
-                              Grid.Column="1">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <views:TaskCardView DataContext="{Binding}" Margin="5"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                <ScrollViewer Grid.Row="1" Grid.Column="1" 
+                              VerticalScrollBarVisibility="Hidden"
+                              PanningMode="VerticalOnly"
+                              CanContentScroll="False">
+                    <ItemsControl ItemsSource="{Binding TaskCardViewModels}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <views:TaskCardView DataContext="{Binding}" Margin="5"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
             </Grid>
         </Border>
     </Grid>
