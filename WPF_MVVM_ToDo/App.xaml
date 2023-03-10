@@ -4,18 +4,25 @@
              xmlns:local="clr-namespace:WPF_MVVM_ToDo"
              StartupUri="Views\MainWindowView.xaml">
     <Application.Resources>
+        <!--#region Font Inter -->
         <FontFamily x:Key="Inter">
             ./Resources/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf#Inter
         </FontFamily>
+        <!--#endregion-->
 
+        <!--#region Control -->
         <Style TargetType="Control">
             <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         </Style>
+        <!--#endregion-->
 
+        <!--#region TextBlock -->
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#DDDDDD"/>
         </Style>
+        <!--#endregion-->
 
+        <!--#region TextBox -->
         <Style TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -24,7 +31,31 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="CaretBrush" Value="White"/>
+            <Setter Property="CaretBrush" Value="#DDDDDD"/>
         </Style>
+        <!--#endregion-->
+
+        <!--#region Button -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderThickness="0" CornerRadius="5" x:Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#AFAFAF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#828282"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
     </Application.Resources>
 </Application>
