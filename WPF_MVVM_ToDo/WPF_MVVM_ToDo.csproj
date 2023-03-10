@@ -15,4 +15,8 @@
     <PackageReference Include="FontAwesome5" Version="2.1.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
 </Project>
