@@ -3,21 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
+             xmlns:views="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
+    <UserControl.DataContext>
+        <vms:HomeScreenViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Border CornerRadius="30" Background="#111315">
             <Grid Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="600"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="8*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
                     <fa:ImageAwesome Icon="Regular_CheckCircle" 
@@ -29,6 +33,20 @@
                                VerticalAlignment="Center"
                                Margin="20 0 0 0"/>
                 </StackPanel>
+                <ItemsControl ItemsSource="{Binding TaskCardViewModels}"
+                              Grid.Row="1"
+                              Grid.Column="1">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskCardView DataContext="{Binding}" Margin="5"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
             </Grid>
         </Border>
     </Grid>
