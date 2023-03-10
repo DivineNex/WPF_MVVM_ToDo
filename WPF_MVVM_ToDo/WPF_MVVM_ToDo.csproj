@@ -8,23 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Icons\logo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Commands\" />
     <Folder Include="Resources\Fonts\" />
-    <Folder Include="ViewModels\Controls\" />
-    <Folder Include="Views\Controls\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome5" Version="2.1.11" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Icons\logo.png" />
   </ItemGroup>
 
 </Project>
