@@ -25,7 +25,7 @@
 
         <!--#region TextBlock -->
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#DDDDDD"/>
+            <Setter Property="Foreground" Value="{StaticResource SuperLightGray}"/>
         </Style>
         <!--#endregion-->
 
@@ -38,7 +38,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="CaretBrush" Value="#DDDDDD"/>
+            <Setter Property="CaretBrush" Value="{StaticResource SuperLightGray}"/>
         </Style>
         <!--#endregion-->
 
