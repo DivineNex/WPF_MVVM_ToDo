@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace WPF_MVVM_ToDo.Commands
 {
-    class ValigateSearchBarOnFocusCommand : Command
+    internal class ValigateSearchBarOnFocusCommand : Command
     {
         public override bool CanExecute(object? parameter) => true;
 
