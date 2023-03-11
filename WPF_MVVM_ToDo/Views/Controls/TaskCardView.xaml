@@ -17,7 +17,7 @@
                                  Height="14"
                                  HorizontalAlignment="Left"
                                  Margin="8 16 0 32"/>
-                <TextBlock Text="Buy a coffee"
+                <TextBlock Text="{Binding Task.Title, FallbackValue=Title}"
                            Foreground="#111315"
                            FontFamily="{StaticResource Inter}"
                            FontSize="16"

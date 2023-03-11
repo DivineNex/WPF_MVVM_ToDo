@@ -23,7 +23,7 @@
                 CornerRadius="14">
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBox HorizontalAlignment="Stretch"
-                        Text="Title"
+                        Text="{Binding Title, Mode=OneWayToSource, FallbackValue=Title}"
                         FontWeight="DemiBold"
                         FontSize="24"
                         Margin="10 10 10 0"
@@ -34,7 +34,7 @@
                         Height="1" Margin="10 5 10 10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <TextBox HorizontalAlignment="Stretch"
-                        Text="Длиииииииииииииииииииииииииииииииииииииииинный текст заметки"
+                        Text="{Binding Description, Mode=OneWayToSource, FallbackValue=Description}"
                         FontSize="18"
                         Margin="10 0"
                         Height="250"
@@ -52,14 +52,17 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" 
                             Background="{StaticResource MediumGray}" 
-                            Width="150" Height="36">
+                            Width="150" Height="36"
+                            Command="{Binding CreateTaskCommand}"
+                            CommandParameter="{Binding Task}">
                         <fa:ImageAwesome Icon="Solid_Plus" 
                                          Height="20" Width="20" 
                                          Foreground="{StaticResource LightGray}"/>
                     </Button>
                     <Button Grid.Column="1" 
-                            Background="{StaticResource MediumGray}" 
-                            Width="150" Height="36">
+                            Background="{StaticResource MediumGray}"
+                            Width="150" Height="36"
+                            Command="{Binding CloseActiveWindowCommand}">
                         <fa:ImageAwesome Icon="Solid_Minus" 
                                          Height="20" Width="20"
                                          Foreground="{StaticResource LightGray}"/>
