@@ -14,6 +14,9 @@
     <Window.DataContext>
         <vms:TaskCreationWindowViewModel/>
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="Esc" Command="{Binding CloseActiveWindowCommand}"/>
+    </Window.InputBindings>
     <Grid>
         <Border Background="{StaticResource DarkShadow}" 
                 CornerRadius="30" Margin="10 10 0 0"/>
