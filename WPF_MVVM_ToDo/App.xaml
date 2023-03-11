@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPF_MVVM_ToDo"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:other="clr-namespace:WPF_MVVM_ToDo.Other"
              StartupUri="Views\MainWindowView.xaml">
     <Application.Resources>
+
+        <!--#region PlaceholderConverter -->
+        <other:PlaceholderConverter x:Key="PlaceholderConverter"/>
+        <!--#endregion-->
+
         <!--#region Font Inter -->
         <FontFamily x:Key="Inter">
             ./Resources/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf#Inter

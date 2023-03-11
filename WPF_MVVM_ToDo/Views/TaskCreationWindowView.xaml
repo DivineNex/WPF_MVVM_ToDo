@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_ToDo"
         xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
+        xmlns:other="clr-namespace:WPF_MVVM_ToDo.Other"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
         Title="TaskCreationWindowView" Height="400" Width="400"

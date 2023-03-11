@@ -13,9 +13,6 @@
     <UserControl.DataContext>
         <vms:HomeScreenViewModel/>
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <other:PlaceholderConverter x:Key="PlaceholderConverter"/>
-    </UserControl.Resources>
     <Grid>
         <Border CornerRadius="30" Background="{StaticResource DarkGray}">
             <Grid Margin="20">
