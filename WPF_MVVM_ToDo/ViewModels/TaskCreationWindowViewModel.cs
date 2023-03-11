@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WPF_MVVM_ToDo.ViewModels
+﻿namespace WPF_MVVM_ToDo.ViewModels
 {
-    class ModalWindowViewModel : ViewModel
+    internal class TaskCreationWindowViewModel : ViewModel
     {
 
     }

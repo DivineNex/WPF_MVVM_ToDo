@@ -72,7 +72,8 @@
                         </StackPanel>
                     </Border>
                     <Button Height="34"
-                            Margin="5">
+                            Margin="5"
+                            Command="{Binding OpenTaskCreationWindowCommand}">
                         <fa:ImageAwesome Icon="Solid_Plus" Foreground="{StaticResource MediumGray}" Margin="0 6"/>
                     </Button>
                 </DockPanel>

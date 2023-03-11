@@ -9,11 +9,11 @@ namespace WPF_MVVM_ToDo.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        public CloseApplicationCommand CloseApplicationCommand { get; private set; }
+        public CloseActiveWindowCommand CloseApplicationCommand { get; private set; }
 
         public MainWindowViewModel()
         {
-            CloseApplicationCommand = new CloseApplicationCommand();
+            CloseApplicationCommand = new CloseActiveWindowCommand();
         }
     }
 }
