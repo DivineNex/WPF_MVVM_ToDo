@@ -5,23 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_ToDo"
         xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
-        Title="TaskCreationWindowView" Height="390" Width="610"
+        Title="TaskCreationWindowView" Height="400" Width="400"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <vms:TaskCreationWindowViewModel/>
-    </Window.DataContext>
     <Window.InputBindings>
         <KeyBinding Key="Esc" Command="{Binding CloseActiveWindowCommand}"/>
     </Window.InputBindings>
     <Grid>
         <Border Background="{StaticResource DarkShadow}" 
-                CornerRadius="30" Margin="10 10 0 0"/>
-        <Border Background="{StaticResource DarkGray}" Margin="0 0 10 10" CornerRadius="30">
-            
+                CornerRadius="14" Margin="10 10 0 0"/>
+        <Border Background="{StaticResource LightGray}" 
+                Margin="0 0 10 10" 
+                CornerRadius="14">
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBox HorizontalAlignment="Stretch"
+                        Text="Title"
+                        FontWeight="DemiBold"
+                        FontSize="24"
+                        Margin="10 10 10 0"
+                        Foreground="{StaticResource MediumGray}"
+                        CaretBrush="{StaticResource MediumGray}"
+                        VerticalContentAlignment="Center"/>
+                <Border Background="{StaticResource MediumGray}"
+                        Height="1" Margin="10 5 10 10"/>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <TextBox HorizontalAlignment="Stretch"
+                        Text="Длиииииииииииииииииииииииииииииииииииииииинный текст заметки"
+                        FontSize="18"
+                        Margin="10 0"
+                        Height="250"
+                        Foreground="{StaticResource MediumGray}"
+                        CaretBrush="{StaticResource MediumGray}"
+                        VerticalContentAlignment="Top"
+                        TextWrapping="Wrap"/>
+                </ScrollViewer>
+                <Border Background="{StaticResource MediumGray}"
+                        Height="1" Margin="10 10 10 10"/>
+                <Grid Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" 
+                            Background="{StaticResource MediumGray}" 
+                            Width="150" Height="36">
+                        <fa:ImageAwesome Icon="Solid_Plus" 
+                                         Height="20" Width="20" 
+                                         Foreground="{StaticResource LightGray}"/>
+                    </Button>
+                    <Button Grid.Column="1" 
+                            Background="{StaticResource MediumGray}" 
+                            Width="150" Height="36">
+                        <fa:ImageAwesome Icon="Solid_Minus" 
+                                         Height="20" Width="20"
+                                         Foreground="{StaticResource LightGray}"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
         </Border>
     </Grid>
 </Window>
