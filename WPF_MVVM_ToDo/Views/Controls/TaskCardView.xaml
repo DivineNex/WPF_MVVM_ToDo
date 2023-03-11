@@ -6,28 +6,26 @@
              xmlns:local="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
-             d:DesignHeight="105" d:DesignWidth="150"
-             Height="105" Width="140">
+             d:DesignHeight="125" d:DesignWidth="165"
+             Height="125" Width="165">
     <Grid>
-        <Border Background="#C9CAEE" CornerRadius="14">
-            <Border.Resources>
-            </Border.Resources>
-            <StackPanel>
+        <Border Background="#C9CAEE" CornerRadius="5">
+            <StackPanel Margin="10">
                 <fa:ImageAwesome Icon="Solid_Coffee" 
-                                 Height="14"
+                                 Height="16"
                                  HorizontalAlignment="Left"
-                                 Margin="8 16 0 32"/>
+                                 Margin="0 8 0 40"/>
                 <TextBlock Text="{Binding Task.Title, FallbackValue=Title}"
                            Foreground="#111315"
                            FontFamily="{StaticResource Inter}"
-                           FontSize="16"
+                           FontSize="18"
                            HorizontalAlignment="Left"
-                           Margin="8 0 0 0"/>
+                           Margin="0 0 0 0"/>
                 <TextBlock Text="Today"
                            Foreground="#626262"
                            HorizontalAlignment="Left"
-                           Margin="8 0 0 0"
-                           FontSize="10"/>
+                           Margin="0 0 0 0"
+                           FontSize="12"/>
             </StackPanel>
         </Border>
     </Grid>
