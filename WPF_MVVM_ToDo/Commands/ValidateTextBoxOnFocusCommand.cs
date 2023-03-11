@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace WPF_MVVM_ToDo.Commands
 {
-    internal class ValigateSearchBarOnFocusCommand : Command
+    internal class ValidateTextBoxOnFocusCommand : Command
     {
         public override bool CanExecute(object? parameter) => true;
 
@@ -15,7 +10,7 @@ namespace WPF_MVVM_ToDo.Commands
         {
             var textbox = parameter as TextBox;
 
-            if (textbox.Text == "Search")
+            if (textbox.Text == textbox.Tag.ToString())
                 textbox.Text = "";
         }
     }

@@ -7,12 +7,16 @@
         xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
         xmlns:other="clr-namespace:WPF_MVVM_ToDo.Other"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="TaskCreationWindowView" Height="400" Width="400"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vms:TaskCreationWindowViewModel/>
+    </Window.DataContext>
     <Window.InputBindings>
         <KeyBinding Key="Esc" Command="{Binding CloseActiveWindowCommand}"/>
     </Window.InputBindings>
@@ -23,26 +27,52 @@
                 Margin="0 0 10 10" 
                 CornerRadius="14">
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBox HorizontalAlignment="Stretch"
-                        Text="{Binding Title, Mode=OneWayToSource, FallbackValue=Title}"
+                <TextBox x:Name="titleTextBox"
+                        HorizontalAlignment="Stretch"
                         FontWeight="DemiBold"
                         FontSize="24"
                         Margin="10 10 10 0"
                         Foreground="{StaticResource MediumGray}"
                         CaretBrush="{StaticResource MediumGray}"
-                        VerticalContentAlignment="Center"/>
+                        VerticalContentAlignment="Center"
+                        Tag="Title">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource PlaceholderConverter}">
+                            <Binding Path="Title" Mode="OneWayToSource"/>
+                            <Binding Path="TitlePlaceholderText" Mode="OneWay"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="GotFocus">
+                            <i:InvokeCommandAction Command="{Binding ValidateTextBoxOnFocusCommand}" CommandParameter="{Binding ElementName=titleTextBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
                 <Border Background="{StaticResource MediumGray}"
                         Height="1" Margin="10 5 10 10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                    <TextBox HorizontalAlignment="Stretch"
-                        Text="{Binding Description, Mode=OneWayToSource, FallbackValue=Description}"
+                    <TextBox x:Name="descriptionTextBox"
+                        HorizontalAlignment="Stretch"
                         FontSize="18"
                         Margin="10 0"
                         Height="250"
                         Foreground="{StaticResource MediumGray}"
                         CaretBrush="{StaticResource MediumGray}"
                         VerticalContentAlignment="Top"
-                        TextWrapping="Wrap"/>
+                        TextWrapping="Wrap"
+                        Tag="Description">
+                        <TextBox.Text>
+                            <MultiBinding Converter="{StaticResource PlaceholderConverter}">
+                                <Binding Path="Description" Mode="OneWayToSource"/>
+                                <Binding Path="DescriptionPlaceholderText" Mode="OneWay"/>
+                            </MultiBinding>
+                        </TextBox.Text>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ValidateTextBoxOnFocusCommand}" CommandParameter="{Binding ElementName=descriptionTextBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
                 </ScrollViewer>
                 <Border Background="{StaticResource MediumGray}"
                         Height="1" Margin="10 10 10 10"/>

@@ -10,11 +10,10 @@ namespace WPF_MVVM_ToDo.ViewModels
     {
         public ObservableCollection<TaskCardViewModel> TaskCardViewModels { get; }
 
-        public ValigateSearchBarOnLostFocusCommand ValidateSearchBarOnLostFocusCommand { get; private set; }
-        public ValigateSearchBarOnFocusCommand ValidateSearchBarOnFocusCommand { get; private set; }
+        public ValidateTextBoxOnFocusCommand ValidateTextBoxOnFocusCommand { get; private set; }
         public OpenTaskCreationWindowCommand OpenTaskCreationWindowCommand { get; private set; }
 
-        public string PlaceholderText
+        public string SearchPlaceholderText
         {
             get { return "Search"; }
         }
@@ -29,8 +28,7 @@ namespace WPF_MVVM_ToDo.ViewModels
 
         public HomeScreenViewModel()
         {
-            ValidateSearchBarOnLostFocusCommand = new ValigateSearchBarOnLostFocusCommand();
-            ValidateSearchBarOnFocusCommand = new ValigateSearchBarOnFocusCommand();
+            ValidateTextBoxOnFocusCommand = new ValidateTextBoxOnFocusCommand();
             OpenTaskCreationWindowCommand = new OpenTaskCreationWindowCommand();
 
             TaskCardViewModels = new ObservableCollection<TaskCardViewModel>();

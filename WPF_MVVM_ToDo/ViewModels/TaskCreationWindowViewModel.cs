@@ -22,39 +22,52 @@ namespace WPF_MVVM_ToDo.ViewModels
             get { return _task.Title; }
             set { _task.Title = value; }
         }
-
         public string Description
         {
             get { return _task.Description; }
             set { _task.Description = value; }
         }
-
         public DateTime StartDate
         {
             get { return _task.StartDate; }
             set { _task.StartDate = value; }
         }
-
         public DateTime EndDate
         {
             get { return _task.EndDate; }
             set { _task.EndDate = value; }
         }
-
         public eTaskStatus Status
         {
             get { return _task.Status; }
             set { _task.Status = value; }
         }
 
+        public string TitlePlaceholderText
+        {
+            get { return "Title"; }
+        }
+
+        public string DescriptionPlaceholderText
+        {
+            get { return "Description"; }
+        }
+
         public CloseActiveWindowCommand CloseActiveWindowCommand { get; private set; }
         public CreateTaskCommand CreateTaskCommand { get; private set; }
+        public ValidateTextBoxOnFocusCommand ValidateTextBoxOnFocusCommand { get; private set; }
+
+        public TaskCreationWindowViewModel()
+        {
+
+        }
 
         public TaskCreationWindowViewModel(ObservableCollection<TaskCardViewModel> taskCardViewModels)
         {
             _task = new Task();
             CloseActiveWindowCommand = new CloseActiveWindowCommand();
             CreateTaskCommand = new CreateTaskCommand(taskCardViewModels);
+            ValidateTextBoxOnFocusCommand = new ValidateTextBoxOnFocusCommand();
         }
     }
 }
