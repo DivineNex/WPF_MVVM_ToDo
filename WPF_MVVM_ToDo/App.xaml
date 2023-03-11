@@ -9,6 +9,13 @@
             ./Resources/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf#Inter
         </FontFamily>
         <!--#endregion-->
+        
+        <!--#region Brushes -->
+        <SolidColorBrush x:Key="DarkGray" Color="#111315"/>
+        <SolidColorBrush x:Key="MediumGray" Color="#2D2D2D"/>
+        <SolidColorBrush x:Key="LightGray" Color="#8E8E8E"/>
+        <SolidColorBrush x:Key="SuperLightGray" Color="#DDDDDD"/>
+        <!--#endregion-->
 
         <!--#region Control -->
         <Style TargetType="Control">
