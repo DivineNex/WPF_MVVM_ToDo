@@ -4,12 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_ToDo"
+        xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
         mc:Ignorable="d"
         Title="TaskCreationWindowView" Height="390" Width="610"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vms:TaskCreationWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Border Background="{StaticResource DarkShadow}" 
                 CornerRadius="30" Margin="10 10 0 0"/>
