@@ -5,11 +5,16 @@ namespace WPF_MVVM_ToDo.Models
 {
     internal class Task
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public DateTime StartDate { get; private set; }
-        public DateTime EndDate { get; private set;}
-        public eTaskStatus Status { get; private set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set;}
+        public eTaskStatus Status { get; set; }
+
+        public Task() 
+        {
+            
+        }
 
         public Task(string title, string description, DateTime startDate, DateTime endDate, eTaskStatus status)
         {
