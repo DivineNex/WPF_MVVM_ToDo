@@ -15,6 +15,7 @@
         <SolidColorBrush x:Key="MediumGray" Color="#2D2D2D"/>
         <SolidColorBrush x:Key="LightGray" Color="#8E8E8E"/>
         <SolidColorBrush x:Key="SuperLightGray" Color="#DDDDDD"/>
+        <SolidColorBrush x:Key="DarkShadow" Color="Black" Opacity="0.2"/>
         <!--#endregion-->
 
         <!--#region Control -->
