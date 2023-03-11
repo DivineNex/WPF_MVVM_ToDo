@@ -7,11 +7,15 @@
              xmlns:vms="clr-namespace:WPF_MVVM_ToDo.ViewModels"
              xmlns:views="clr-namespace:WPF_MVVM_ToDo.Views.Controls"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:other="clr-namespace:WPF_MVVM_ToDo.Other"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.DataContext>
         <vms:HomeScreenViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <other:PlaceholderConverter x:Key="PlaceholderConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Border CornerRadius="30" Background="{StaticResource DarkGray}">
             <Grid Margin="20">
@@ -51,8 +55,7 @@
                             Width="500">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Solid_Search" Margin="5 6 10 6" Foreground="{StaticResource LightGray}"/>
-                            <TextBox Text="Search"
-                                     x:Name="searchBarTextBox"
+                            <TextBox x:Name="searchBarTextBox"
                                      VerticalAlignment="Stretch"
                                      VerticalContentAlignment="Center"
                                      FontSize="16" Foreground="{StaticResource LightGray}"
@@ -60,6 +63,12 @@
                                      Background="Transparent"
                                      Margin="0 0 5 0"
                                      Width="460">
+                                <TextBox.Text>
+                                    <MultiBinding Converter="{StaticResource PlaceholderConverter}">
+                                        <Binding Path="SearchText"/>
+                                        <Binding Path="PlaceholderText" Mode="OneWay"/>
+                                    </MultiBinding>
+                                </TextBox.Text>
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="LostFocus">
                                         <i:InvokeCommandAction Command="{Binding ValidateSearchBarOnLostFocusCommand}" CommandParameter="{Binding ElementName=searchBarTextBox}"/>
@@ -73,7 +82,8 @@
                     </Border>
                     <Button Height="34"
                             Margin="5"
-                            Command="{Binding OpenTaskCreationWindowCommand}">
+                            Command="{Binding OpenTaskCreationWindowCommand}"
+                            CommandParameter="{Binding TaskCardViewModels}">
                         <fa:ImageAwesome Icon="Solid_Plus" Foreground="{StaticResource MediumGray}" Margin="0 6"/>
                     </Button>
                 </DockPanel>

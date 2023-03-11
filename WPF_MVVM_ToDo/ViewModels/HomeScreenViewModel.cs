@@ -14,6 +14,19 @@ namespace WPF_MVVM_ToDo.ViewModels
         public ValigateSearchBarOnFocusCommand ValidateSearchBarOnFocusCommand { get; private set; }
         public OpenTaskCreationWindowCommand OpenTaskCreationWindowCommand { get; private set; }
 
+        public string PlaceholderText
+        {
+            get { return "Search"; }
+        }
+
+        private string _searchText;
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { Set(ref _searchText, value, nameof(_searchText)); }
+        }
+
         public HomeScreenViewModel()
         {
             ValidateSearchBarOnLostFocusCommand = new ValigateSearchBarOnLostFocusCommand();
