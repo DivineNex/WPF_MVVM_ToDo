@@ -8,13 +8,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="125" d:DesignWidth="165"
              Height="125" Width="165">
+    <UserControl.Resources>
+        <Style x:Key="MouseOverBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource DarkGray}"/>
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Border Background="#C9CAEE" CornerRadius="5">
+        <Border x:Name="border" Background="#C9CAEE" CornerRadius="5" Style="{StaticResource MouseOverBorder}">
             <StackPanel Margin="10">
                 <fa:ImageAwesome Icon="Solid_Coffee" 
                                  Height="16"
                                  HorizontalAlignment="Left"
-                                 Margin="0 8 0 40"/>
+                                 Margin="0 8 0 36"/>
                 <TextBlock Text="{Binding Task.Title, FallbackValue=Title}"
                            Foreground="#111315"
                            FontFamily="{StaticResource Inter}"

@@ -39,7 +39,7 @@
                 <Border Grid.Column="0" Grid.Row="1"
                         Background="{StaticResource MediumGray}"
                         CornerRadius="14"
-                        Margin="10 0 5 10">
+                        Margin="10 0 25 10">
                     
                 </Border>
                 <DockPanel Grid.Column="1" Grid.Row="0">
@@ -93,7 +93,7 @@
                 <Border Grid.Column="2" Grid.Row="0"
                         Background="{StaticResource MediumGray}"
                         CornerRadius="14"
-                        Margin="5 5 10 10">
+                        Margin="25 5 10 10">
 
                 </Border>
                 <ScrollViewer Grid.Row="1" Grid.Column="1" 
@@ -117,7 +117,7 @@
                 <Border Grid.Column="2" Grid.Row="1"
                         Background="{StaticResource MediumGray}"
                         CornerRadius="14"
-                        Margin="5 0 10 10">
+                        Margin="25 0 10 10">
 
                 </Border>
             </Grid>
