@@ -6,6 +6,13 @@ namespace WPF_MVVM_ToDo.Commands
 {
     internal class OpenTaskCreationWindowCommand : Command
     {
+        private HomeScreenViewModel _homeScreenViewModel;
+
+        public OpenTaskCreationWindowCommand(HomeScreenViewModel homeScreenViewModel)
+        {
+            _homeScreenViewModel = homeScreenViewModel;
+        }
+
         public override bool CanExecute(object? parameter)
         {
             return true;
@@ -13,10 +20,8 @@ namespace WPF_MVVM_ToDo.Commands
 
         public override void Execute(object? parameter)
         {
-            var taskCollection = parameter as ObservableCollection<TaskCardViewModel>;
-
             var taskCreationWindowView = new TaskCreationWindowView();
-            var taskCreationWindowViewModel = new TaskCreationWindowViewModel(taskCollection);
+            var taskCreationWindowViewModel = new TaskCreationWindowViewModel(_homeScreenViewModel);
             taskCreationWindowView.DataContext = taskCreationWindowViewModel;
             taskCreationWindowView.ShowDialog();
         }

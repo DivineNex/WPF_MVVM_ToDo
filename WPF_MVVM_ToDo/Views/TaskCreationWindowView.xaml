@@ -23,11 +23,12 @@
     <Grid>
         <Border Background="{StaticResource DarkShadow}" 
                 CornerRadius="14" Margin="10 10 0 0"/>
-        <Border Background="{StaticResource LightGray}" 
+        <Border Background="{StaticResource LightGray}"
                 Margin="0 0 10 10" 
                 CornerRadius="14">
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBox x:Name="titleTextBox"
+                <TextBox x:Name="titleTextBox" 
+                        Style="{StaticResource TextBoxBase}"
                         HorizontalAlignment="Stretch"
                         FontWeight="DemiBold"
                         FontSize="24"
@@ -52,6 +53,7 @@
                         Height="1" Margin="10 5 10 10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <TextBox x:Name="descriptionTextBox"
+                        Style="{StaticResource TextBoxBase}"
                         HorizontalAlignment="Stretch"
                         FontSize="18"
                         Margin="10 0"

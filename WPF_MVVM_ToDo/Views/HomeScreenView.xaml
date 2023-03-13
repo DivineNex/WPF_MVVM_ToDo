@@ -43,7 +43,7 @@
                     
                 </Border>
                 <DockPanel Grid.Column="1" Grid.Row="0">
-                    
+
                     <Border DockPanel.Dock="Left"
                             Background="{StaticResource MediumGray}"
                             VerticalAlignment="Center"
@@ -55,11 +55,9 @@
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Solid_Search" Margin="5 6 10 6" Foreground="{StaticResource LightGray}"/>
                             <TextBox x:Name="searchBarTextBox"
+                                     Style="{StaticResource TextBoxBase}"
                                      VerticalAlignment="Stretch"
-                                     VerticalContentAlignment="Center"
-                                     FontSize="16" Foreground="{StaticResource LightGray}"
-                                     FontFamily="{StaticResource Inter}"
-                                     Background="Transparent"
+                                     FontSize="16"
                                      Margin="0 0 5 0"
                                      Width="500"
                                      Tag="Search">
@@ -80,8 +78,7 @@
                     <Button Height="34" Width="96"
                             Margin="5"
                             Background="#59DD80"
-                            Command="{Binding OpenTaskCreationWindowCommand}"
-                            CommandParameter="{Binding TaskCardViewModels}">
+                            Command="{Binding OpenTaskCreationWindowCommand}">
                         <fa:ImageAwesome Icon="Solid_Plus" Margin="0 6"/>
                     </Button>
                     <Button Height="34" Width="34"
@@ -90,17 +87,12 @@
                         <fa:ImageAwesome Icon="Solid_Eraser" Margin="0 6"/>
                     </Button>
                 </DockPanel>
-                <Border Grid.Column="2" Grid.Row="0"
-                        Background="{StaticResource MediumGray}"
-                        CornerRadius="14"
-                        Margin="25 5 10 10">
-
-                </Border>
                 <ScrollViewer Grid.Row="1" Grid.Column="1" 
                               VerticalScrollBarVisibility="Hidden"
                               PanningMode="VerticalOnly"
                               CanContentScroll="False"
-                              Margin="0 0 0 10">
+                              Margin="0 0 0 10"
+                              x:Name="scrollViewer">
                     <ItemsControl ItemsSource="{Binding TaskCardViewModels}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -114,12 +106,41 @@
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
                 </ScrollViewer>
-                <Border Grid.Column="2" Grid.Row="1"
-                        Background="{StaticResource MediumGray}"
-                        CornerRadius="14"
-                        Margin="25 0 10 10">
+                <Grid Grid.Column="2" Grid.Row="1" Margin="25 0 10 10">
+                    <Grid.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="{StaticResource MediumGray}"/>
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBase}">
+                            <Setter Property="Margin" Value="10 0"/>
+                            <Setter Property="FontSize" Value="20"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="44">
+                        <TextBox Text="{Binding SelectedTaskCard.Task.Title}" IsReadOnly="True" FontSize="26" FontWeight="DemiBold"/>
+                    </Border>
+                    <Border Grid.Row="1" Margin="0 5 0 0">
+                        <TextBox Text="{Binding SelectedTaskCard.Task.Description}"
+                                 VerticalContentAlignment="Top"
+                                 Margin="10 20"
+                                 TextWrapping="Wrap"
+                                 IsReadOnly="True"/>
+                    </Border>
+                    <TextBox Grid.Row="2" Margin="0 5 0 0" IsReadOnly="True"/>
+                    <TextBox Grid.Row="3" Margin="0 5 0 0" IsReadOnly="True"/>
+                    <TextBox Grid.Row="4" Margin="0 5 0 0" IsReadOnly="True"/>
+                    <TextBox Grid.Row="5" Margin="0 5 0 0" IsReadOnly="True"/>
 
-                </Border>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

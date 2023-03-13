@@ -6,8 +6,7 @@
              xmlns:other="clr-namespace:WPF_MVVM_ToDo.Other"
              StartupUri="Views\MainWindowView.xaml">
     <Application.Resources>
-
-        <!--#region PlaceholderConverter -->
+        <!--#region Converters -->
         <other:PlaceholderConverter x:Key="PlaceholderConverter"/>
         <!--#endregion-->
 
@@ -44,7 +43,7 @@
         <!--#endregion-->
 
         <!--#region TextBox -->
-        <Style TargetType="TextBox">
+        <Style TargetType="TextBox" x:Key="TextBoxBase">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -53,6 +52,10 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="CaretBrush" Value="{StaticResource SuperLightGray}"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+            <Setter Property="Foreground" Value="{StaticResource LightGray}"/>
         </Style>
         <!--#endregion-->
 

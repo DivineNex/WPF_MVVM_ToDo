@@ -57,16 +57,13 @@ namespace WPF_MVVM_ToDo.ViewModels
         public CreateTaskCommand CreateTaskCommand { get; private set; }
         public ValidateTextBoxOnFocusCommand ValidateTextBoxOnFocusCommand { get; private set; }
 
-        public TaskCreationWindowViewModel()
-        {
+        public TaskCreationWindowViewModel() { }
 
-        }
-
-        public TaskCreationWindowViewModel(ObservableCollection<TaskCardViewModel> taskCardViewModels)
+        public TaskCreationWindowViewModel(HomeScreenViewModel homeScreenViewModel)
         {
             _task = new Task();
             CloseActiveWindowCommand = new CloseActiveWindowCommand();
-            CreateTaskCommand = new CreateTaskCommand(taskCardViewModels);
+            CreateTaskCommand = new CreateTaskCommand(homeScreenViewModel);
             ValidateTextBoxOnFocusCommand = new ValidateTextBoxOnFocusCommand();
         }
     }

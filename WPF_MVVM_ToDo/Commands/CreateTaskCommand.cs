@@ -1,16 +1,16 @@
-﻿using System.Collections.ObjectModel;
-using WPF_MVVM_ToDo.Models;
+﻿using WPF_MVVM_ToDo.Models;
+using WPF_MVVM_ToDo.ViewModels;
 using WPF_MVVM_ToDo.ViewModels.Controls;
 
 namespace WPF_MVVM_ToDo.Commands
 {
     internal class CreateTaskCommand : Command
     {
-        private ObservableCollection<TaskCardViewModel> _taskCardViewModels;
+        private HomeScreenViewModel _homeScreenViewModel;
 
-        public CreateTaskCommand(ObservableCollection<TaskCardViewModel> taskCardViewModels)
+        public CreateTaskCommand(HomeScreenViewModel homeScreenViewModel)
         {
-            _taskCardViewModels = taskCardViewModels;
+            _homeScreenViewModel = homeScreenViewModel;
         }
 
         public override bool CanExecute(object? parameter) => true;
@@ -19,7 +19,7 @@ namespace WPF_MVVM_ToDo.Commands
         {
             var task = parameter as Task;
 
-            _taskCardViewModels.Add(new TaskCardViewModel(task));
+            _homeScreenViewModel.TaskCardViewModels.Add(new TaskCardViewModel(_homeScreenViewModel, task));
         }
     }
 }
