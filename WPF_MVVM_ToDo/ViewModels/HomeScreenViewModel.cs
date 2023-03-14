@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using WPF_MVVM_ToDo.Commands;
-using WPF_MVVM_ToDo.Models;
 using WPF_MVVM_ToDo.ViewModels.Controls;
 
 namespace WPF_MVVM_ToDo.ViewModels
@@ -14,6 +11,8 @@ namespace WPF_MVVM_ToDo.ViewModels
         public ValidateTextBoxOnFocusCommand ValidateTextBoxOnFocusCommand { get; private set; }
         public OpenTaskCreationWindowCommand OpenTaskCreationWindowCommand { get; private set; }
         public SelectTaskCardCommand SelectTaskCardCommand { get; private set; }
+
+        public ColorPickerPanelViewModel ColorPickerViewModel { get; private set; }
 
         #region SearchPlaceholderText
         public string SearchPlaceholderText
@@ -48,36 +47,7 @@ namespace WPF_MVVM_ToDo.ViewModels
             OpenTaskCreationWindowCommand = new OpenTaskCreationWindowCommand(this);
 
             TaskCardViewModels = new ObservableCollection<TaskCardViewModel>();
-
-            TaskCardViewModels.Add(new TaskCardViewModel(this, new Task("test1",
-                "test description",
-                new DateTime(2000, 12, 10),
-                new DateTime(2000, 12, 11),
-                Other.eTaskStatus.Active)));
-
-            TaskCardViewModels.Add(new TaskCardViewModel(this, new Task("test1",
-                "test description",
-                new DateTime(2000, 12, 10),
-                new DateTime(2000, 12, 11),
-                Other.eTaskStatus.Active)));
-
-            TaskCardViewModels.Add(new TaskCardViewModel(this, new Task("test1",
-                "test description",
-                new DateTime(2000, 12, 10),
-                new DateTime(2000, 12, 11),
-                Other.eTaskStatus.Active)));
-
-            TaskCardViewModels.Add(new TaskCardViewModel(this, new Task("test1",
-                "test description",
-                new DateTime(2000, 12, 10),
-                new DateTime(2000, 12, 11),
-                Other.eTaskStatus.Active)));
-
-            TaskCardViewModels.Add(new TaskCardViewModel(this, new Task("test1",
-                "test description",
-                new DateTime(2000, 12, 10),
-                new DateTime(2000, 12, 11),
-                Other.eTaskStatus.Active)));
+            ColorPickerViewModel = new ColorPickerPanelViewModel(this);
         }
     }
 }

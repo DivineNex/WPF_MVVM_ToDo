@@ -1,4 +1,5 @@
-﻿using WPF_MVVM_ToDo.Models;
+﻿using System.Windows.Media;
+using WPF_MVVM_ToDo.Models;
 using WPF_MVVM_ToDo.ViewModels;
 using WPF_MVVM_ToDo.ViewModels.Controls;
 
@@ -19,7 +20,10 @@ namespace WPF_MVVM_ToDo.Commands
         {
             var task = parameter as Task;
 
-            _homeScreenViewModel.TaskCardViewModels.Add(new TaskCardViewModel(_homeScreenViewModel, task));
+            var taskCardViewModel = new TaskCardViewModel(_homeScreenViewModel, task);
+            taskCardViewModel.BackgroundColorBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#C9CAEE"));
+
+            _homeScreenViewModel.TaskCardViewModels.Add(taskCardViewModel);
         }
     }
 }

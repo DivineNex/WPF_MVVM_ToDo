@@ -26,6 +26,7 @@ namespace WPF_MVVM_ToDo.Commands
                 taskCard.IsSelected = false;
 
             _homeScreenViewModel.SelectedTaskCard = _taskCardViewModel;
+            _homeScreenViewModel.ColorPickerViewModel.SelectedColor = _taskCardViewModel.BackgroundColorBrush.Color;
             _taskCardViewModel.IsSelected = true;
         }
     }

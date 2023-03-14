@@ -125,7 +125,7 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="0" Height="44">
+                    <Border Grid.Row="0">
                         <TextBox Text="{Binding SelectedTaskCard.Task.Title}" IsReadOnly="True" FontSize="26" FontWeight="DemiBold"/>
                     </Border>
                     <Border Grid.Row="1" Margin="0 5 0 0">
@@ -138,8 +138,10 @@
                     <TextBox Grid.Row="2" Margin="0 5 0 0" IsReadOnly="True"/>
                     <TextBox Grid.Row="3" Margin="0 5 0 0" IsReadOnly="True"/>
                     <TextBox Grid.Row="4" Margin="0 5 0 0" IsReadOnly="True"/>
-                    <TextBox Grid.Row="5" Margin="0 5 0 0" IsReadOnly="True"/>
-
+                    <Border Grid.Row="5" Margin=" 0 5 0 0">
+                        
+                    </Border>
+                    <views:ColorPickerPanelView Grid.Row="5" Margin="0 5 0 0" DataContext="{Binding ColorPickerViewModel}"/>
                 </Grid>
             </Grid>
         </Border>
