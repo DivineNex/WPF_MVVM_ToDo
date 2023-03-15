@@ -51,5 +51,13 @@
                            FontSize="12"/>
             </StackPanel>
         </Border>
+        <Canvas Visibility="{Binding DeleteButtonVisibility}">
+            <Button Height="36" Width="36" 
+                    Background="Transparent" 
+                    Canvas.Top="40" Canvas.Left="64.5"
+                    Command="{Binding DeleteTaskCardCommand}">
+                <fa:ImageAwesome Icon="Solid_Trash" Foreground="#7D0000" Height="30" Opacity="0.4"/>
+            </Button>
+        </Canvas>
     </Grid>
 </UserControl>

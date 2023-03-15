@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows;
+using System.Windows.Media;
 using WPF_MVVM_ToDo.Commands;
 using WPF_MVVM_ToDo.Models;
 
@@ -34,10 +35,21 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		{
 			get { return _backgroundColorBrush; }
 			set { Set(ref _backgroundColorBrush, value, nameof(BackgroundColorBrush)); }
+		}
+		#endregion
+
+		#region DeleteButtonVisibility
+		private Visibility _deleteButtonVisibility;
+
+		public Visibility DeleteButtonVisibility
+		{
+			get { return _deleteButtonVisibility; }
+			set { Set(ref _deleteButtonVisibility, value, nameof(DeleteButtonVisibility)); }
 		} 
 		#endregion
 
 		public SelectTaskCardCommand SelectTaskCardCommand { get; private set; }
+		public DeleteTaskCardCommand DeleteTaskCardCommand { get; private set; }
 
 		public TaskCardViewModel() {}
 
@@ -46,6 +58,12 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 			_task = task;
 
 			SelectTaskCardCommand = new SelectTaskCardCommand(this, homeScreenViewModel);
+			DeleteTaskCardCommand = new DeleteTaskCardCommand(this, homeScreenViewModel);
+
+			if (homeScreenViewModel.DeleteModeEnabled)
+				DeleteButtonVisibility = Visibility.Visible;
+			else
+				DeleteButtonVisibility = Visibility.Collapsed;
 		}
     }
 }

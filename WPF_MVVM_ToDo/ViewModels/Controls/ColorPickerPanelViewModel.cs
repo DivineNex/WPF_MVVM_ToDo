@@ -50,7 +50,7 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		{
 			get { return _borderThicknesses; }
 			set { Set(ref _borderThicknesses, value, nameof(BorderThicknesses)); }
-		} 
+		}
 		#endregion
 
 		public SelectColorInColorPickerCommand SelectColorInColorPickerCommand { get; set; }
