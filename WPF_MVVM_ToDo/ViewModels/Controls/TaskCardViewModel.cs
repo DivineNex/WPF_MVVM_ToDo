@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
 using WPF_MVVM_ToDo.Commands;
 using WPF_MVVM_ToDo.Models;
@@ -17,6 +18,11 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		}
 		#endregion
 
+		public string CreationDate
+		{
+			get { return $"{Task.CreationDate.ToShortDateString()} {Task.CreationDate.ToShortTimeString()}"; }
+		}
+
 		#region IsSelected
 		private bool _isSelected;
 
@@ -28,8 +34,7 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		#endregion
 
 		#region BackgroundColorBrush
-		private SolidColorBrush _backgroundColorBrush = new SolidColorBrush(Color.FromArgb(0xC9, 0xCA, 0xEE, 0xFF));
-
+		private SolidColorBrush _backgroundColorBrush = new SolidColorBrush(Color.FromRgb(228, 205, 238));
 
 		public SolidColorBrush BackgroundColorBrush
 		{

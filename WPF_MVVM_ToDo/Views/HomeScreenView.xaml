@@ -84,7 +84,8 @@
                     <Button Height="34" Width="34"
                             Margin="5"
                             Background="#DD6262"
-                            Command="{Binding SwitchDeleteModeCommand}">
+                            Command="{Binding SwitchDeleteModeCommand}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <fa:ImageAwesome Icon="Solid_Trash" Margin="0 6"/>
                     </Button>
                 </DockPanel>
@@ -124,7 +125,6 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0">
                         <TextBox Text="{Binding SelectedTaskCard.Task.Title}" IsReadOnly="True" FontSize="26" FontWeight="DemiBold"/>
@@ -136,13 +136,11 @@
                                  TextWrapping="Wrap"
                                  IsReadOnly="True"/>
                     </Border>
-                    <TextBox Grid.Row="2" Margin="0 5 0 0" IsReadOnly="True"/>
+                    <TextBox Grid.Row="2" Margin="0 5 0 0" IsReadOnly="True" Text="{Binding SelectedTaskCard.CreationDate, Mode=OneWay}"/>
                     <TextBox Grid.Row="3" Margin="0 5 0 0" IsReadOnly="True"/>
-                    <TextBox Grid.Row="4" Margin="0 5 0 0" IsReadOnly="True"/>
-                    <Border Grid.Row="5" Margin=" 0 5 0 0">
-
+                    <Border Grid.Row="4" Margin=" 0 5 0 0">
+                        <views:ColorPickerPanelView DataContext="{Binding ColorPickerViewModel}"/>
                     </Border>
-                    <views:ColorPickerPanelView Grid.Row="5" Margin="0 5 0 0" DataContext="{Binding ColorPickerViewModel}"/>
                 </Grid>
             </Grid>
         </Border>

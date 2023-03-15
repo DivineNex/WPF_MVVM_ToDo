@@ -27,16 +27,12 @@ namespace WPF_MVVM_ToDo.ViewModels
             get { return _task.Description; }
             set { _task.Description = value; }
         }
-        public DateTime StartDate
+        public DateTime CreationDate
         {
-            get { return _task.StartDate; }
-            set { _task.StartDate = value; }
+            get { return _task.CreationDate; }
+            set { _task.CreationDate = value; }
         }
-        public DateTime EndDate
-        {
-            get { return _task.EndDate; }
-            set { _task.EndDate = value; }
-        }
+
         public eTaskStatus Status
         {
             get { return _task.Status; }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using WPF_MVVM_ToDo.Commands;
 using WPF_MVVM_ToDo.ViewModels.Controls;
 
@@ -69,6 +70,12 @@ namespace WPF_MVVM_ToDo.ViewModels
 
             TaskCardViewModels = new ObservableCollection<TaskCardViewModel>();
             ColorPickerViewModel = new ColorPickerPanelViewModel(this);
+
+            TaskCardViewModels.Add(new TaskCardViewModel(this, new Models.Task("Купить хлеб", "Описание", DateTime.Now, Other.eTaskStatus.Active)));
+            TaskCardViewModels.Add(new TaskCardViewModel(this, new Models.Task("Купить хлеб", "Описание", DateTime.Now, Other.eTaskStatus.Active)));
+            TaskCardViewModels.Add(new TaskCardViewModel(this, new Models.Task("Купить хлеб", "Описание", DateTime.Now, Other.eTaskStatus.Active)));
+            TaskCardViewModels.Add(new TaskCardViewModel(this, new Models.Task("Купить хлеб", "Описание", DateTime.Now, Other.eTaskStatus.Active)));
+            TaskCardViewModels.Add(new TaskCardViewModel(this, new Models.Task("Купить хлеб", "Описание", DateTime.Now, Other.eTaskStatus.Active)));
         }
     }
 }

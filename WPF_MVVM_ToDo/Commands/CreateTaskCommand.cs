@@ -21,7 +21,6 @@ namespace WPF_MVVM_ToDo.Commands
             var task = parameter as Task;
 
             var taskCardViewModel = new TaskCardViewModel(_homeScreenViewModel, task);
-            taskCardViewModel.BackgroundColorBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#C9CAEE"));
 
             _homeScreenViewModel.TaskCardViewModels.Add(taskCardViewModel);
         }
