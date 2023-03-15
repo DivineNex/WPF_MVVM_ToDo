@@ -115,7 +115,7 @@
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                         <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBase}">
-                            <Setter Property="Margin" Value="10 0"/>
+                            <Setter Property="Margin" Value="10 2"/>
                             <Setter Property="FontSize" Value="20"/>
                         </Style>
                     </Grid.Resources>
@@ -127,17 +127,27 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0">
-                        <TextBox Text="{Binding SelectedTaskCard.Task.Title}" IsReadOnly="True" FontSize="26" FontWeight="DemiBold"/>
+                        <TextBox Text="{Binding SelectedTaskCard.Task.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                 FontSize="26" FontWeight="DemiBold"
+                                 TextWrapping="Wrap"/>
                     </Border>
-                    <Border Grid.Row="1" Margin="0 5 0 0">
-                        <TextBox Text="{Binding SelectedTaskCard.Task.Description}"
+                    <Border Grid.Row="1" Margin="0 5 0 0" Background="Transparent">
+                        <TextBox Text="{Binding SelectedTaskCard.Task.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  VerticalContentAlignment="Top"
                                  Margin="10 20"
-                                 TextWrapping="Wrap"
-                                 IsReadOnly="True"/>
+                                 TextWrapping="Wrap"/>
                     </Border>
                     <TextBox Grid.Row="2" Margin="0 5 0 0" IsReadOnly="True" Text="{Binding SelectedTaskCard.CreationDateTime, Mode=OneWay}"/>
-                    <TextBox Grid.Row="3" Margin="0 5 0 0" IsReadOnly="True" Text="{Binding SelectedTaskCard.StatusText, Mode=OneWay}"/>
+                    <Grid Grid.Row="3" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Height="34" Width="34" Background="Transparent" Command="{Binding SelectedTaskCard.SwitchTaskCardStatusCommand}">
+                            <fa:ImageAwesome Foreground="{StaticResource LightGray}" Icon="{Binding SelectedTaskCard.StatusIcon, FallbackValue=None}"/>
+                        </Button>
+                        <TextBox Grid.Column="1" IsReadOnly="True" Text="{Binding SelectedTaskCard.StatusText, Mode=OneWay}"/>
+                    </Grid>
                     <Border Grid.Row="4" Margin=" 0 5 0 0">
                         <views:ColorPickerPanelView DataContext="{Binding ColorPickerViewModel}"/>
                     </Border>
