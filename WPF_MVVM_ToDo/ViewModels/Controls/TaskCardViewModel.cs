@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome5;
+using System;
 using System.Windows;
 using System.Windows.Media;
 using WPF_MVVM_ToDo.Commands;
@@ -18,10 +19,31 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		}
 		#endregion
 
-		public string CreationDate
+		#region CreationDateTime
+		public string CreationDateTime
 		{
-			get { return $"{Task.CreationDate.ToShortDateString()} {Task.CreationDate.ToShortTimeString()}"; }
+			get
+			{
+				if (Task.CreationDate.ToShortDateString() == DateTime.Now.ToShortDateString())
+					return $"Today {Task.CreationDate.ToShortTimeString()}";
+				else
+					return $"{Task.CreationDate.ToShortDateString()} {Task.CreationDate.ToShortTimeString()}";
+			}
 		}
+        #endregion
+
+        #region CreationDate
+        public string CreationDate
+		{
+			get
+			{
+				if (Task.CreationDate.ToShortDateString() == DateTime.Now.ToShortDateString())
+					return "Today";
+				else
+					return Task.CreationDate.ToShortDateString();
+			}
+		} 
+		#endregion
 
 		#region IsSelected
 		private bool _isSelected;
@@ -50,13 +72,34 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 		{
 			get { return _deleteButtonVisibility; }
 			set { Set(ref _deleteButtonVisibility, value, nameof(DeleteButtonVisibility)); }
+		}
+		#endregion
+
+		#region StatusIcon
+		private EFontAwesomeIcon _statusIcon;
+
+		public EFontAwesomeIcon StatusIcon
+		{
+			get { return _statusIcon; }
+			set { Set(ref _statusIcon, value, nameof(StatusIcon)); }
+		}
+		#endregion
+
+		#region StatusText
+		private string _statusText;
+
+		public string StatusText
+		{
+			get { return _statusText; }
+			set { Set(ref _statusText, value, nameof(StatusText)); }
 		} 
 		#endregion
 
 		public SelectTaskCardCommand SelectTaskCardCommand { get; private set; }
 		public DeleteTaskCardCommand DeleteTaskCardCommand { get; private set; }
+        public SwitchTaskCardStatusCommand SwitchTaskCardStatusCommand { get; private set; }
 
-		public TaskCardViewModel() {}
+        public TaskCardViewModel() {}
 
 		public TaskCardViewModel(HomeScreenViewModel homeScreenViewModel, Task task)
 		{
@@ -64,11 +107,23 @@ namespace WPF_MVVM_ToDo.ViewModels.Controls
 
 			SelectTaskCardCommand = new SelectTaskCardCommand(this, homeScreenViewModel);
 			DeleteTaskCardCommand = new DeleteTaskCardCommand(this, homeScreenViewModel);
+			SwitchTaskCardStatusCommand = new SwitchTaskCardStatusCommand(this);
 
 			if (homeScreenViewModel.DeleteModeEnabled)
 				DeleteButtonVisibility = Visibility.Visible;
 			else
 				DeleteButtonVisibility = Visibility.Collapsed;
-		}
+
+			if (Task.Status == Other.eTaskStatus.Active)
+			{
+                StatusIcon = EFontAwesomeIcon.Regular_Circle;
+				StatusText = "Not completed yet";
+            }
+            else
+			{
+                StatusIcon = EFontAwesomeIcon.Regular_CheckCircle;
+				StatusText = "Completed";
+            }
+        }
     }
 }

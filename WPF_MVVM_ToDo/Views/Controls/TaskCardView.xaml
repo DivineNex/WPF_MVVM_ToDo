@@ -33,10 +33,24 @@
     <Grid>
         <Border x:Name="border" Background="{Binding BackgroundColorBrush}" CornerRadius="5" Style="{StaticResource MouseOverBorder}">
             <StackPanel Margin="10">
-                <fa:ImageAwesome Icon="Solid_Coffee" 
-                                 Height="16"
-                                 HorizontalAlignment="Left"
-                                 Margin="0 8 0 36"/>
+                <Grid Height="24" Margin="0 8 0 26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Icon="Solid_Coffee"
+                                     Height="18"
+                                     Grid.Column="0"
+                                     HorizontalAlignment="Left"
+                                     Width="26"/>
+                    <Button Background="Transparent"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Right"
+                            Grid.Column="1"
+                            Command="{Binding SwitchTaskCardStatusCommand}">
+                        <fa:ImageAwesome Icon="{Binding StatusIcon, FallbackValue=Regular_Circle}"/>
+                    </Button>
+                </Grid>
                 <TextBlock Text="{Binding Task.Title, FallbackValue=Title}"
                            Foreground="#111315"
                            FontFamily="{StaticResource Inter}"
@@ -44,10 +58,9 @@
                            FontWeight="DemiBold"
                            HorizontalAlignment="Left"
                            Margin="0 0 0 0"/>
-                <TextBlock Text="Today"
+                <TextBlock Text="{Binding CreationDate, Mode=OneWay, FallbackValue=CreationDate}"
                            Foreground="#626262"
                            HorizontalAlignment="Left"
-                           Margin="0 0 0 0"
                            FontSize="12"/>
             </StackPanel>
         </Border>

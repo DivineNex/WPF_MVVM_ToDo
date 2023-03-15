@@ -9,8 +9,6 @@ namespace WPF_MVVM_ToDo.Other
     internal enum eTaskStatus
     {
         Active,
-        Completed,
-        Overdue,
-        Canceled
+        Completed
     }
 }
